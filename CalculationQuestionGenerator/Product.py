@@ -71,13 +71,17 @@ class Product:
                 if j > 3:
                     if exp[j-2] == '÷' :  #为了子表达式为真分数，÷左右又括号除外
                         if exp[j-1] > exp[j-3]:
-                            exp.pop()
-                            j = j - 1
+                            t  = exp[j-1]
+                            exp[j - 1] =  exp[j-3]
+                            exp[j - 3] = t
 
-                    if exp[j-2] == '-' :
+
+                    elif exp[j-2] == '-' :
                         if exp[j-1] < exp[j-3]:
-                            exp.pop()
-                            j = j - 1
+                            t  = exp[j-1]
+                            exp[j - 1] =  exp[j-3]
+                            exp[j - 3] = t
+
 
 
 
@@ -88,18 +92,31 @@ class Product:
                 expression = " ".join(exp)
 
             #判断是否有重复
-            if self.isRepeat(expressionList, expression) :
-               continue
+
+            if self.expressionNum <= 500:
+                if self.isRepeat(expressionList, expression) :
+                   continue
+                else:
+                    result = self.calculate(expression)
+                    if result == "False" :
+                        pass
+                    else:
+
+                        expressionList.append(expression)
+                        #('第 %d 道题' % int(i + 1))
+                        #print(expression)
+                        i = i + 1
             else:
                 result = self.calculate(expression)
-                if result == "False" :
+                if result == "False":
                     pass
                 else:
 
                     expressionList.append(expression)
-                    #('第 %d 道题' % int(i + 1))
-                    #print(expression)
+                    # ('第 %d 道题' % int(i + 1))
+                    # print(expression)
                     i = i + 1
+
 
 
         return expressionList
