@@ -5,7 +5,6 @@ import os
 
 from SuffixExpression import SuffixExpression
 
-#未测试
 class Answer:
 
     exp_list = []
