@@ -11,10 +11,10 @@ import os
 def main():
     #输入文件绝对路径，arg1，arg2为要查重的文件，arg3为答案文件
     parser = argparse.ArgumentParser(description="小学四则运算自动生成器")
-    parser.add_argument('-n',  type=str, help='控制生成题目的个数')
-    parser.add_argument('-r',  type=str, help='题目中数值（自然数、真分数和真分数分母）的范围')
-    parser.add_argument('-e',type=str, default=" ", help='题目文件')
-    parser.add_argument('-a', type=str,default=" ", help='答案文件')
+    parser.add_argument('-n','-na',  type=str, help='控制生成题目的个数')
+    parser.add_argument('-r', '-ra', type=str, help='题目中数值（自然数、真分数和真分数分母）的范围')
+    parser.add_argument('-e','-ea',type=str, default=" ", help='题目文件')
+    parser.add_argument('-a', '-aa',type=str,default=" ", help='答案文件')
     args = parser.parse_args()
     n = int(args.n)
     r = int(args.r)
